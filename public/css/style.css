@@ -1,0 +1,12 @@
+body, button{
+    background-color: rgb(255, 253, 145);
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    text-align: center;
+}
+
+#app {
+    border: 3px solid black;
+    padding: 30px;
+    border-radius: 10px;
+}

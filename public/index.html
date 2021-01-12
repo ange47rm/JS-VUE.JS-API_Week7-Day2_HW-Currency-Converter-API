@@ -3,14 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;400&display=swap" rel="stylesheet">
     <script src='js/bundle.js'></script>
-    <title>Currenty Converter</title>
+    <title>Currency Converter</title>
 </head>
 <body>
 
     <div id='app'>
         <h1> Currency Converter</h1>
 
+
+        <form v-on:submit.prevent="convertValue">
+        <label for='amount'>Insert amount in €</label>
+        <input type='number' id='amount' v-model='inputValue'>
+        <input type="submit" value="Convert value">
+        </form>
+        <br>
+        <label for='dropdown'>Select "target" currency</label>
+        <select id='dropdown' name='targetCurrency' v-model='selectedCurrencyRate'>
+        <option v-for="(rate, currency) in exchangeRates.rates" v-bind:value="rate">{{ currency }}</option>
+        </select>
+
+        <p v-if='finalValue'>Conversion rate as of today: {{ selectedCurrencyRate }}</p>
+
+        <p v-if='finalValue'> Value after conversion: {{ finalValue }}</p>
 
     </div>
     
